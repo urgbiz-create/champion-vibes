@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="description" content="CHAMPION VIBES — Urban motivational wear. I am a Champion — in the fight, every single day." />
+    <link rel="icon" href="data:," />
+    <title>CHAMPION VIBES — Urban Motivational Wear</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+    <style>
+      /* Anton — self-hosted so the display titles always render in it */
+      @font-face{
+        font-family:"Anton";
+        font-style:normal;
+        font-weight:400;
+        font-display:swap;
+        src:url("assets/anton-latin.woff2") format("woff2");
+        unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+      }
+      @font-face{
+        font-family:"Anton";
+        font-style:normal;
+        font-weight:400;
+        font-display:swap;
+        src:url("assets/anton-latin-ext.woff2") format("woff2");
+        unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF;
+      }
+      :root{
+        --bg:#0a0a0a;
+        --ink:#f4f1ec;
+        --ink-dim:rgba(244,241,236,.62);
+        --ink-faint:rgba(244,241,236,.38);
+        --red:#BF2423;
+        --line:rgba(244,241,236,.14);
+        --sans:"Archivo",-apple-system,"Helvetica Neue",Arial,sans-serif;
+        --display:"Anton","Arial Narrow",Impact,sans-serif;
+      }
+      *{box-sizing:border-box;margin:0;padding:0}
+      html{scroll-behavior:smooth}
+      body{
+        background:var(--bg);
+        color:var(--ink);
+        font-family:var(--sans);
+        font-weight:300;
+        -webkit-font-smoothing:antialiased;
+        overflow-x:hidden;
+      }
+      img{display:block;max-width:100%}
+      a{color:inherit}
+
+      /* ---------- top bar ---------- */
+      .bar{
+        position:fixed;inset:0 0 auto 0;z-index:50;
+        display:flex;align-items:center;justify-content:space-between;
+        padding:20px clamp(20px,4vw,56px);
+        background:linear-gradient(to bottom,rgba(10,10,10,.72),rgba(10,10,10,0));
+      }
+      .bar .mark{
+        font-family:var(--display);
+        font-size:15px;letter-spacing:.14em;
+        text-decoration:none;color:#fff;
+        line-height:1;
+      }
+      .bar .mark span{color:var(--red)}
+      .bar nav{display:flex;gap:clamp(18px,3.4vw,44px)}
+      .bar nav a{
+        font-family:var(--display);font-weight:400;
+        font-size:13px;letter-spacing:.18em;
+        text-decoration:none;color:#fff;text-transform:uppercase;
+        padding:6px 0;border-bottom:1px solid transparent;
+        transition:border-color .25s ease,opacity .25s ease;
+      }
+      .bar nav a:hover{border-bottom-color:#fff}
+
+      /* ---------- hero (logo-led) ---------- */
+      .hero{
+        min-height:100svh;
+        display:flex;flex-direction:column;align-items:center;justify-content:center;
+        text-align:center;
+        padding:110px clamp(20px,4vw,56px) clamp(60px,9vh,90px);
+      }
+      .vh{
+        position:absolute;width:1px;height:1px;
+        overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;
+      }
+      .hero-logo{
+        width:min(88vw,880px);
+        height:auto;
+      }
+      .hero .tagline{
+        margin-top:clamp(30px,5vh,54px);
+        font-size:clamp(17px,2.1vw,26px);
+        font-weight:300;
+        letter-spacing:.01em;
+        max-width:640px;
+        line-height:1.45;
+      }
+      .hero .tagline em{font-style:italic}
+      .hero .cta{
+        display:inline-block;
+        margin-top:clamp(20px,3.4vh,34px);
+        font-size:12px;letter-spacing:.3em;font-weight:500;text-transform:uppercase;
+        text-decoration:none;color:var(--ink);
+        padding-bottom:8px;
+        border-bottom:2px solid var(--red);
+        transition:color .25s ease,border-color .25s ease;
+      }
+      .hero .cta:hover{color:var(--red);border-bottom-color:var(--ink)}
+
+      /* ---------- shared section chrome ---------- */
+      section{position:relative}
+      .section-head{
+        display:flex;align-items:baseline;justify-content:space-between;
+        padding:clamp(64px,11vh,130px) clamp(20px,4vw,56px) clamp(26px,4vh,44px);
+      }
+      .section-head h2{
+        font-family:var(--display);font-weight:400;
+        font-size:clamp(30px,4.6vw,58px);
+        letter-spacing:.02em;text-transform:uppercase;line-height:1;
+      }
+      .section-head h2 span{color:var(--red)}
+      .section-head .note{
+        font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-faint);
+      }
+      @media (max-width:640px){ .section-head .note{display:none} }
+
+      /* ---------- shop ---------- */
+      .shop-grid{
+        display:grid;
+        grid-template-columns:repeat(6,1fr);
+        gap:clamp(28px,4vw,56px) clamp(14px,2vw,28px);
+        padding:0 clamp(20px,4vw,56px) clamp(70px,10vh,120px);
+      }
+      .product{
+        text-decoration:none;
+        grid-column:span 2;
+      }
+      .product.wide{grid-column:span 3}
+      .product .frame{
+        background:#111;
+        overflow:hidden;
+        aspect-ratio:5/6;
+      }
+      .product .frame img{
+        width:100%;height:100%;object-fit:cover;
+        transition:transform .8s cubic-bezier(.19,1,.22,1);
+      }
+      .product:hover .frame img,
+      .product:focus-visible .frame img{transform:scale(1.045)}
+      .product .meta{
+        display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+        padding-top:14px;
+      }
+      .product .name{
+        font-size:13px;font-weight:400;letter-spacing:.06em;line-height:1.5;
+      }
+      .product .price{
+        font-size:13px;font-weight:400;color:var(--ink-dim);white-space:nowrap;
+      }
+      @media (max-width:820px){
+        .shop-grid{grid-template-columns:1fr 1fr}
+        .product,.product.wide{grid-column:span 1}
+        .product:last-child{grid-column:1 / -1}
+        .product:last-child .frame{aspect-ratio:5/4}
+      }
+      @media (max-width:460px){
+        .shop-grid{grid-template-columns:1fr}
+        .product .frame,.product:last-child .frame{aspect-ratio:5/6}
+      }
+
+      /* ---------- lookbook ---------- */
+      .lookbook{padding-bottom:clamp(70px,10vh,120px)}
+      .lb-row{display:grid;gap:clamp(10px,1.4vw,20px);padding:0 clamp(10px,1.4vw,20px);margin-bottom:clamp(10px,1.4vw,20px)}
+      .lb-row:last-child{margin-bottom:0}
+      .lb-row.full{grid-template-columns:1fr}
+      .lb-row.duo{grid-template-columns:1fr 1fr}
+      .lb-row.trio-l{grid-template-columns:1.55fr 1fr}
+      .lb-row figure{overflow:hidden;background:#111}
+      .lb-row img{width:100%;height:100%;object-fit:cover}
+      .lb-row.full img{aspect-ratio:16/8.2}
+      .lb-row.duo img{aspect-ratio:4/4.6}
+      .lb-row.trio-l figure{position:relative}
+      .lb-row.trio-l figure:first-child{aspect-ratio:1.55/1.3}
+      .lb-row.trio-l figure:last-child{aspect-ratio:1/1.3}
+      .lb-row.trio-l img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+      .lb-row.solo{grid-template-columns:1fr;justify-items:center}
+      .lb-row.solo figure{width:min(100%,520px)}
+      .lb-row.solo img{aspect-ratio:4/4.4}
+      /* featured pair — Emre & Dasha */
+      .duo-feature figure{background:transparent;display:flex;flex-direction:column}
+      .duo-feature img{flex:none;height:auto}
+      /* Dasha's photo is never cropped by the pair frame — her whole face shows */
+      .lb-row.duo.duo-feature{align-items:start}
+      .lb-row.duo.duo-feature figure.dasha img{
+        width:100%;height:auto;aspect-ratio:auto;object-fit:initial;
+      }
+      .duo-feature figcaption,.dasha-spot figcaption{
+        display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+        padding-top:14px;
+      }
+      .duo-feature figcaption .who,.dasha-spot figcaption .who{
+        font-family:var(--display);font-weight:400;
+        font-size:clamp(16px,2vw,21px);letter-spacing:.12em;text-transform:uppercase;color:var(--ink);
+      }
+      .duo-feature figcaption .who span,.dasha-spot figcaption .who span{color:var(--red)}
+      .duo-feature figcaption .role,.dasha-spot figcaption .role{
+        font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-faint);white-space:nowrap;
+      }
+      /* Dasha spotlight — full-face portrait, shown whole */
+      .dasha-spot figure{background:transparent;display:flex;flex-direction:column}
+      .lb-row.solo.dasha-spot figure img{
+        width:100%;height:auto;aspect-ratio:auto;object-fit:initial;
+      }
+      @media (max-width:700px){
+        .lb-row.duo,.lb-row.trio-l{grid-template-columns:1fr}
+        .lb-row.full img{aspect-ratio:4/3.4}
+        .lb-row.duo img{aspect-ratio:4/4.4}
+        .lb-row.trio-l figure:first-child,.lb-row.trio-l figure:last-child{aspect-ratio:4/4.4}
+      }
+
+      /* ---------- story ---------- */
+      .story{
+        border-top:1px solid var(--line);
+        padding:clamp(90px,15vh,170px) clamp(20px,4vw,56px) clamp(100px,16vh,180px);
+        text-align:center;
+      }
+      .story .kicker{
+        font-family:var(--display);font-weight:400;
+        font-size:clamp(17px,1.9vw,23px);letter-spacing:.22em;text-transform:uppercase;color:var(--red);
+        margin-bottom:clamp(34px,6vh,58px);
+      }
+      .story blockquote{
+        max-width:880px;margin:0 auto;
+        font-size:clamp(21px,3.1vw,36px);
+        line-height:1.55;font-weight:300;
+        letter-spacing:.005em;
+      }
+      .story blockquote strong{font-weight:500;color:var(--red)}
+      .story .sign{
+        margin-top:clamp(38px,6vh,60px);
+        font-family:var(--display);
+        font-size:clamp(16px,2vw,22px);
+        letter-spacing:.1em;text-transform:uppercase;
+      }
+      .story .sign small{
+        display:block;margin-top:10px;
+        font-family:var(--sans);font-size:11px;letter-spacing:.3em;
+        color:var(--ink-faint);font-weight:400;
+      }
+
+      /* ---------- footer ---------- */
+      footer{
+        border-top:1px solid var(--line);
+        padding:clamp(48px,8vh,80px) clamp(20px,4vw,56px) 44px;
+        text-align:center;
+      }
+      footer .wordmark{
+        font-family:var(--display);
+        font-size:clamp(38px,7.5vw,96px);
+        line-height:.95;color:var(--ink);text-transform:uppercase;
+      }
+      footer .wordmark span{color:var(--red)}
+      footer .sub{
+        margin-top:20px;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-dim);
+      }
+      footer .contact{
+        margin-top:14px;font-size:14px;
+      }
+      footer .contact a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--red);padding-bottom:2px}
+      footer .contact a:hover{color:var(--red)}
+      footer .fine{
+        margin-top:clamp(40px,7vh,64px);
+        font-size:11px;letter-spacing:.18em;color:var(--ink-faint);text-transform:uppercase;
+      }
+
+      /* Content is always visible — no scroll-gated reveals. */
+      @media (prefers-reduced-motion:reduce){
+        html{scroll-behavior:auto}
+        .product .frame img{transition:none}
+      }
+    </style>
+  </head>
+  <body>
+
+    <header class="bar">
+      <a class="mark" href="#top">CHAMPION <span>VIBES</span></a>
+      <nav aria-label="Sections">
+        <a href="#shop">Shop</a>
+        <a href="#lookbook">Lookbook</a>
+        <a href="#story">The Story</a>
+      </nav>
+    </header>
+
+    <!-- 1 · HERO -->
+    <section class="hero" id="top">
+      <h1 class="vh">Champion Vibes</h1>
+      <img class="hero-logo" src="assets/hero-wordmark.png" alt="CHAMPION VIBES" />
+      <p class="tagline">I am a Champion — <em>in the fight, every single day.</em></p>
+      <a class="cta" href="https://champion-vibes.printify.me" target="_blank" rel="noopener">Shop now</a>
+    </section>
+
+    <!-- 2 · SHOP -->
+    <section id="shop">
+      <div class="section-head">
+        <h2>The <span>Line</span></h2>
+        <p class="note">Five pieces · One mantra</p>
+      </div>
+      <div class="shop-grid">
+
+        <a class="product wide rv" href="https://champion-vibes.printify.me" target="_blank" rel="noopener">
+          <div class="frame"><img src="assets/preview-red-on-black.jpg" alt="CHAMPION VIBES wordmark in red on black — hoodie" loading="lazy" /></div>
+          <div class="meta">
+            <span class="name">CHAMPION VIBES Logo Hoodie — Black / Red</span>
+            <span class="price">$45.00</span>
+          </div>
+        </a>
+
+        <a class="product wide rv" href="https://champion-vibes.printify.me" target="_blank" rel="noopener">
+          <div class="frame"><img src="assets/preview-white-on-black.jpg" alt="CHAMPION VIBES wordmark in white on black — hoodie" loading="lazy" /></div>
+          <div class="meta">
+            <span class="name">CHAMPION VIBES Logo Hoodie — Black / White</span>
+            <span class="price">$45.00</span>
+          </div>
+        </a>
+
+        <a class="product rv" href="https://champion-vibes.printify.me" target="_blank" rel="noopener">
+          <div class="frame"><img src="assets/preview-red-on-black.jpg" alt="CHAMPION VIBES wordmark in red on black — tee" loading="lazy" /></div>
+          <div class="meta">
+            <span class="name">CHAMPION VIBES Logo Tee — Black / Red</span>
+            <span class="price">$29.95</span>
+          </div>
+        </a>
+
+        <a class="product rv" href="https://champion-vibes.printify.me" target="_blank" rel="noopener">
+          <div class="frame"><img src="assets/preview-black-on-grey.jpg" alt="CHAMPION VIBES wordmark in black on sport grey — tee" loading="lazy" /></div>
+          <div class="meta">
+            <span class="name">CHAMPION VIBES Logo Tee — Sport Grey / Black</span>
+            <span class="price">$29.95</span>
+          </div>
+        </a>
+
+        <a class="product rv" href="https://champion-vibes.printify.me" target="_blank" rel="noopener">
+          <div class="frame"><img src="assets/preview-pink-on-blue.jpg" alt="CHAMPION VIBES wordmark in pink on royal blue — tee" loading="lazy" /></div>
+          <div class="meta">
+            <span class="name">CHAMPION VIBES Logo Tee — Royal / Pink</span>
+            <span class="price">$29.95</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- 3 · LOOKBOOK -->
+    <section class="lookbook" id="lookbook">
+      <div class="section-head">
+        <h2>Worn <span>Everywhere</span></h2>
+        <p class="note">Real people · Real fights</p>
+      </div>
+
+      <div class="lb-row duo duo-feature">
+        <figure class="rv">
+          <img src="assets/emre-night-court.jpg" alt="Emre Urgenc, founder of Champion Vibes, on a favela basketball court at night wearing a black CHAMPION VIBES hoodie with the red wordmark, holding a basketball" loading="lazy" />
+          <figcaption><span class="who">Emre <span>Urgenc</span></span><span class="role">Founder</span></figcaption>
+        </figure>
+        <figure class="rv dasha">
+          <img src="assets/dasha-field.jpg" alt="Dasha in golden-hour light in a field, her long light-brown hair lit by the sun, holding a bunch of lavender" loading="lazy" />
+          <figcaption><span class="who">Dasha</span><span class="role">Champion Vibes</span></figcaption>
+        </figure>
+      </div>
+
+      <div class="lb-row solo dasha-spot">
+        <figure class="rv">
+          <img src="assets/dasha-closeup.jpg" alt="Black-and-white close-up portrait of Dasha looking straight at the camera, hands in her hair" loading="lazy" />
+          <figcaption><span class="who">Dasha</span><span class="role">Champion Vibes</span></figcaption>
+        </figure>
+      </div>
+
+      <div class="lb-row full rv">
+        <figure><img src="assets/live-4.jpg" alt="Three friends outdoors at a tennis club, the middle one wearing a grey CHAMPION VIBES tee and holding a gold trophy" loading="lazy" /></figure>
+      </div>
+
+      <div class="lb-row duo">
+        <figure class="rv"><img src="assets/live-2.jpg" alt="Close-up of a grey CHAMPION VIBES sweatshirt worn by a smiling wearer" loading="lazy" /></figure>
+        <figure class="rv"><img src="assets/live-5.jpg" alt="Three people standing together wearing yellow, blue and grey CHAMPION VIBES tees" loading="lazy" /></figure>
+      </div>
+
+      <div class="lb-row solo">
+        <figure class="rv"><img src="assets/live-3.jpg" alt="A group of friends around a trophy winner wearing a grey CHAMPION VIBES tee" loading="lazy" /></figure>
+      </div>
+    </section>
+
+    <!-- 4 · THE STORY -->
+    <section class="story" id="story">
+      <p class="kicker">The Story</p>
+      <blockquote class="rv">
+        I created CHAMPION VIBES while I was a dialysis patient. It was the mantra I held onto to survive: I am a Champion — not when life is easy, but in the fight, every single day. I shared that mindset with my friends, and whenever they were down, they'd say 'CHAMPION VIBES' and get back up. This isn't just a shirt. It's the reminder you wear: <strong>your fight makes you a champion.</strong>
+      </blockquote>
+      <p class="sign rv">— Emre Urgenc<small>Founder</small></p>
+    </section>
+
+    <!-- 5 · FOOTER -->
+    <footer>
+      <p class="wordmark">Champion <span>Vibes</span></p>
+      <p class="sub">Urban motivational wear</p>
+      <p class="contact"><a href="mailto:urgbiz@gmail.com">urgbiz@gmail.com</a></p>
+      <p class="fine">© 2026 Champion Vibes</p>
+    </footer>
+
+  </body>
+</html>
