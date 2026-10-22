@@ -168,6 +168,32 @@
       .shop-feature img{
         width:min(100%,600px);height:auto;display:block;
       }
+      /* cover gallery — right under the hero: one large lead photo, then paired portraits */
+      .cover-gallery{padding-bottom:clamp(52px,8vh,84px)}
+      .hero-feature{
+        display:flex;justify-content:center;
+        padding:clamp(8px,2vh,20px) clamp(20px,4vw,56px) clamp(10px,1.4vw,20px);
+      }
+      .hero-feature .photo-link{width:min(100%,640px)}
+      .hero-feature img{width:100%;height:auto;display:block}
+      .cover-duo{
+        display:grid;grid-template-columns:1fr 1fr;
+        gap:clamp(10px,1.4vw,20px);
+        padding:0 clamp(20px,4vw,56px);
+        margin-bottom:clamp(10px,1.4vw,20px);
+      }
+      .cover-duo:last-child{margin-bottom:0}
+      .cover-duo figure{overflow:hidden;background:#111}
+      .cover-duo img{width:100%;height:auto;display:block}
+      .cover-solo{
+        display:flex;justify-content:center;
+        padding:0 clamp(20px,4vw,56px);
+      }
+      .cover-solo .photo-link{width:min(100%,640px)}
+      .cover-solo img{width:100%;height:auto;display:block}
+      @media (max-width:700px){
+        .cover-duo{grid-template-columns:1fr}
+      }
       /* photos that link out to the store — subtle zoom so they read as tappable */
       .photo-link{display:block;cursor:pointer}
       .photo-link img{
@@ -383,6 +409,53 @@
       <img class="hero-logo" src="assets/hero-wordmark.png" alt="CHAMPION VIBES" />
       <p class="tagline">I am a Champion — <em>in the fight, every single day.</em></p>
       <a class="cta" href="https://champion-vibes.printify.me" target="_blank" rel="noopener">Shop now</a>
+    </section>
+
+    <!-- COVER GALLERY -->
+    <section class="cover-gallery" aria-label="Cover gallery">
+      <div class="hero-feature">
+        <a class="photo-link" href="https://champion-vibes.printify.me" target="_blank" rel="noopener"><img src="assets/model6-killbill-rain.webp" alt="Close-up portrait in the Tokyo rain wearing the yellow CHAMPION VIBES tee, a katana hilt over her shoulder" loading="lazy" /></a>
+      </div>
+      <div class="cover-duo">
+        <figure>
+          <a class="photo-link" href="https://champion-vibes.printify.me" target="_blank" rel="noopener"><img src="assets/model4-laundry-lean.webp" alt="Leaning against the machines in a laundromat wearing the white CHAMPION VIBES hoodie" loading="lazy" /></a>
+        </figure>
+        <figure>
+          <a class="photo-link" href="https://champion-vibes.printify.me" target="_blank" rel="noopener"><img src="assets/model4-urban-plaza.webp" alt="Low-angle portrait in a skyscraper plaza wearing the white CHAMPION VIBES hoodie" loading="lazy" /></a>
+        </figure>
+      </div>
+      <div class="cover-duo">
+        <figure>
+          <a class="photo-link" href="https://champion-vibes.printify.me" target="_blank" rel="noopener"><img src="assets/model4-steamy-closeup.webp" alt="Steamy close-up portrait, chin down and eyes up, wearing the white CHAMPION VIBES tee" loading="lazy" /></a>
+        </figure>
+        <figure>
+          <a class="photo-link" href="https://champion-vibes.printify.me" target="_blank" rel="noopener"><img src="assets/model4-cinema-closeup.webp" alt="Close-up portrait in front of a cinema marquee wearing the grey CHAMPION VIBES tee" loading="lazy" /></a>
+        </figure>
+      </div>
+      <div class="cover-duo">
+        <figure>
+          <a class="photo-link" href="https://champion-vibes.printify.me" target="_blank" rel="noopener"><img src="assets/duo-m2m3-pier.webp" alt="Two models standing back to back on a foggy pier at dawn, wearing CHAMPION VIBES" loading="lazy" /></a>
+        </figure>
+        <figure>
+          <a class="photo-link" href="https://champion-vibes.printify.me" target="_blank" rel="noopener"><img src="assets/model2-staircase.webp" alt="Glancing back on a marble palace staircase wearing the grey CHAMPION VIBES tee" loading="lazy" /></a>
+        </figure>
+      </div>
+      <div class="cover-duo">
+        <figure>
+          <a class="photo-link" href="https://champion-vibes.printify.me" target="_blank" rel="noopener"><img src="assets/model2-rooftop-intense.webp" alt="Intense waist-up portrait against rooftop city lights wearing the white CHAMPION VIBES hoodie" loading="lazy" /></a>
+        </figure>
+        <figure>
+          <a class="photo-link" href="https://champion-vibes.printify.me" target="_blank" rel="noopener"><img src="assets/model2-l3-natural.webp" alt="Close-up in a laundromat with glowing machine doors, wearing a black CHAMPION VIBES tank top" loading="lazy" /></a>
+        </figure>
+      </div>
+      <div class="cover-duo">
+        <figure>
+          <a class="photo-link" href="https://champion-vibes.printify.me" target="_blank" rel="noopener"><img src="assets/model3-carnival.webp" alt="Candid at a carnival wearing the white CHAMPION VIBES hoodie" loading="lazy" /></a>
+        </figure>
+        <figure>
+          <a class="photo-link" href="https://champion-vibes.printify.me" target="_blank" rel="noopener"><img src="assets/model3-skatepark.webp" alt="Standing on a skateboard at a skate park at dusk wearing the black CHAMPION VIBES hoodie, arms crossed" loading="lazy" /></a>
+        </figure>
+      </div>
     </section>
 
     <!-- 2 · SHOP -->
